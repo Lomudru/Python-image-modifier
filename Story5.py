@@ -4,8 +4,8 @@ import cv2
 def Resize(image,output, largeur, longueur):
     """
     Convertie l'image mit en paramètre
-    ex : >>> Blurred("../grimm.jpeg","img")
-    renvoie une image floutée et la sauvegarde dans le dossier img"""
+    ex : >>> Resize("grimm.jpeg","img", 0.5, 0.5)
+    renvoie une image redimensionnée et deux foix plus petite et la sauvegarde dans le dossier img"""
     img=Image.open(image)
     im = cv2.imread(image)
     whidth = im.shape[1]

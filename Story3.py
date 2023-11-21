@@ -10,4 +10,4 @@ def Dilatation(image,output):
     kernel = np.ones((10, 10), np.uint8)
     img_dilate = cv2.dilate(img, kernel, iterations=1) 
     cv2.imwrite(f"{output}/Dilated{NameImage}", img_dilate)
-Dilatation("02_Accueil_Hover_Menu.png","img")
+Dilatation("teste.png","img")

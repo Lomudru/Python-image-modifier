@@ -8,6 +8,9 @@ from Story5 import *
 from Story6 import *
 import sys
 
+f = open('imageModifie.log', 'w')
+f.close()
+
 args = sys.argv[1:]
 virgule=False
 Caract = ""

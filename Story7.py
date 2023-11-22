@@ -6,10 +6,12 @@ from Story3 import *
 from Story4 import *
 from Story5 import *
 from Story6 import *
+from logger import *
 
 def modificationFiles(Files,output):
     TabFile = os.listdir(Files)
     os.mkdir('temps')
+    log(f"Dossier temps/ créé.")
     for i in TabFile:
         filePath = BlackAndWhite(f'{Files}/{i}',output,0)
         filePath = Blurred(filePath,output,0)
@@ -19,5 +21,6 @@ def modificationFiles(Files,output):
         filePath = Resize(filePath,output,2,2)
         os.rename(f'{filePath}',f'img/Modified_{i}')
     shutil.rmtree('temps')
+    log(f"Dossier temps/ suprimé.")
 
 modificationFiles('imageAModif','img')

@@ -34,15 +34,16 @@ def Resize(image,output, largeur, longueur,save=1):
     whidth = im.shape[1]
     height = im.shape[0]
 
-    # Applique le filtre en multipliant la largeur et la longueur par les facteurs mis en paramètres
-    img = img.resize((round(whidth * largeur), round(height * longueur)))
-    log(f"{NameImage} est redimensionné : {round(whidth * largeur)} largeur, {round(height * longueur)} longueur")
 
     # Vérifie si le chemin vers l'image contient des dossiers pour ne garder que le nom de l'image et son extension
     NameImage = image
     for i in range(len(image)):
         if image[i]=='/':
             NameImage=image[i+1:]
+
+    # Applique le filtre en multipliant la largeur et la longueur par les facteurs mis en paramètres
+    img = img.resize((round(whidth * largeur), round(height * longueur)))
+    log(f"{NameImage} est redimensionné : {round(whidth * largeur)} largeur, {round(height * longueur)} longueur")
 
     # Sauvegarde l'image ou le met dans un dossier temporaire temps
     try:

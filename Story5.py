@@ -13,8 +13,8 @@ def Resize(image,output, largeur, longueur,save=1):
         print("Vous devez mettre en paramètre le chemin d'une image en format .jpg, .jpeg ou .png (Resize)")
         return
     
-    if not(isinstance(longueur, (float, int))) or not(isinstance(largeur, (float, int))):
-        print('Vous devez rentrer des nombres entiers ou flottants en paramètre de Resize.')
+    if not(isinstance(longueur, (float, int))) or not(isinstance(largeur, (float, int)) or longueur < 0 or largeur < 0):
+        print('Vous devez rentrer des nombres entiers ou flottants positifs en paramètre de Resize.')
         return
 
 
@@ -49,6 +49,4 @@ def Resize(image,output, largeur, longueur,save=1):
             return str(f"temps/ResizeOf{NameImage}")
     except:
         print("Le chemin vers la sauvegarde de votre image modifié n'est pas bon ou n'existe pas. (Resize)")
-        return 
-
-Resize('teste.png','imageAModif', 0.5, 0.5)
+        return

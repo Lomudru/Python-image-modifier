@@ -1,6 +1,7 @@
 import cv2 
 import numpy as np 
-def Dilatation(image,output,save=1): img = cv2.imread(image) # Ouvre l'image 
+def Dilatation(image,output,save=1): 
+    img = cv2.imread(image) # Ouvre l'image 
     NameImage = image # NameImage est le chemin de l'image 
     for i in range(len(image)): # Boucle qui parcours les charactère du chemin de l'image 
         if image[i]=='/': # Si il y as un "/" 

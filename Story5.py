@@ -1,7 +1,7 @@
 from PIL import Image
 import cv2
 
-def Resize(image,output, largeur, longueur):
+def Resize(image,output, largeur, longueur,save=1):
     """
     Convertie l'image mit en paramètre
     ex : >>> Resize("grimm.jpeg","img", 0.5, 0.5)
@@ -11,10 +11,13 @@ def Resize(image,output, largeur, longueur):
     whidth = im.shape[1]
     height = im.shape[0]
     img = img.resize((round(whidth * largeur), round(height * longueur)))
+    NameImage = image
     for i in range(len(image)):
         if image[i]=='/':
             NameImage=image[i+1:]
-    NameImage = image
-    img.show()
-    img.save(f"{output}/ResizeOf{NameImage}")
-Resize("grimm.jpeg","img", 0.5, 0.5)
+    if save==1:
+        img.save(f"{output}/ResizeOf{NameImage}")
+        return str(f"{output}/ResizeOf{NameImage}")
+    else:
+        img.save(f"temps/ResizeOf{NameImage}")
+        return str(f"temps/ResizeOf{NameImage}")

@@ -14,6 +14,7 @@ def Blurred(image,output,save=1):
     for i in range(len(image)):
         if image[i]=='/':
             NameImage=image[i+1:]
+    # Sauvegarde l'image ou le met dans un dossier temporaire temps
     if save==1:
         img.save(f"{output}/BlurredOf{NameImage}")
         return str(f"{output}/BlurredOf{NameImage}")

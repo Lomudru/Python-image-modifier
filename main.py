@@ -33,10 +33,9 @@ if '--i' and '--o' in args:
     output_index = args.index('--o')
     output = args[output_index+1]
     try:
-        if os.path.exists(imagepath):
+        if os.path.isdir(imagepath):
             TabFile = os.listdir(imagepath)
             for i in TabFile:
-                print(i)
                 ipath=f"{imagepath}/{i}"
                 if '--filters' in args:
                     FilterIndex=args.index('--filters')
@@ -121,16 +120,22 @@ if '--i' and '--o' in args:
                                 Long += Filter[IndexResize]
                                 if IndexResize<len(Filter)-1:
                                     IndexResize += 1
-                        ipath= Resize(ipath,output,int(Larg),int(Long),0)
+                        ipath= Resize(ipath,output,float(Larg),float(Long),0)
+                        Larg=""
+                        Long=""
                         virgule=False
 
-                    os.rename(f'{imagepath}/{i}',f'img/Modified_{i}')
+                    os.rename(f'{ipath}',f'img/Modified_{i}')
                     shutil.rmtree('temps')
         else:
             image = imagepath
             if '--filters' in args:
                 FilterIndex=args.index('--filters')
                 Filter = args[FilterIndex+1]
+                NameImage=image
+                for i in range(len(image)):
+                    if image[i]=='/':
+                        NameImage=image[i+1:]
                 if os.path.exists('temps'):
                     shutil.rmtree('temps')
                 os.mkdir('temps')
@@ -211,10 +216,10 @@ if '--i' and '--o' in args:
                             Long += Filter[IndexResize]
                             if IndexResize<len(Filter)-1:
                                 IndexResize += 1
-                    image = Resize(image,output,int(Larg),int(Long),0)
+                    image = Resize(image,output,float(Larg),float(Long),0)
                     virgule=False
 
-                os.rename(f'{image}',f'img/Modified_{ImageFile}')
+                os.rename(f'{image}',f'img/Modified_{NameImage}')
                 log(f"L'image {image} est totalement modifié et sauvegardé dans {output}")
                 shutil.rmtree('temps')
                 log("Le dossier temps/ est supprimé")

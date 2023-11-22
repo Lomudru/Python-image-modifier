@@ -6,6 +6,7 @@ from Story3 import *
 from Story4 import *
 from Story5 import *
 from Story6 import *
+from logger import *
 import sys
 
 f = open('imageModifie.log', 'w')
@@ -117,7 +118,9 @@ if '--i' and '--o' in args:
                 virgule=False
 
             os.rename(f'{image}',f'img/Modified_{ImageFile}')
+            log(f"L'image {image} est totalement modifié et sauvegardé dans {output}")
             shutil.rmtree('temps')
+            log("Le dossier temps/ est supprimé")
             
     # except:
     #     print("Erreur dans les données donnée")

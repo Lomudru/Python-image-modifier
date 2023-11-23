@@ -1,24 +1,12 @@
-Le texte teste a été mis sur l'image grimm.jpeg au coordonnée : 150 x, 150 y
-grimm.jpeg sauvegardée dans temps/ (Write)
-WriteTextOngrimm.jpeg transformé en noir et blanc
-WriteTextOngrimm.jpeg sauvegardée dans temps/ (BAW)
-BlackAndWhiteOfWriteTextOngrimm.jpeg est floutée
-BlackAndWhiteOfWriteTextOngrimm.jpeg sauvegardée dans temps/ (Blurred)
-BlurredOfBlackAndWhiteOfWriteTextOngrimm.jpeg est dilatée
-BlurredOfBlackAndWhiteOfWriteTextOngrimm.jpeg sauvegardée dans temps/ (Dilatation)
-DilatedBlurredOfBlackAndWhiteOfWriteTextOngrimm.jpeg est pivotée de 45 degré(s)
-DilatedBlurredOfBlackAndWhiteOfWriteTextOngrimm.jpeg sauvegardée dans temps/ (Rotate)
-RotateImageOfDilatedBlurredOfBlackAndWhiteOfWriteTextOngrimm.jpeg est redimensionné : 363 largeur, 182 longueur
-RotateImageOfDilatedBlurredOfBlackAndWhiteOfWriteTextOngrimm.jpeg sauvegardée dans temps/ (Resize)
-Le texte testeteste a été mis sur l'image teste.png au coordonnée : 150150 x, 150150 y
-teste.png sauvegardée dans temps/ (Write)
-WriteTextOnteste.png transformé en noir et blanc
-WriteTextOnteste.png sauvegardée dans temps/ (BAW)
-BlackAndWhiteOfWriteTextOnteste.png est floutée
-BlackAndWhiteOfWriteTextOnteste.png sauvegardée dans temps/ (Blurred)
-BlurredOfBlackAndWhiteOfWriteTextOnteste.png est dilatée
-BlurredOfBlackAndWhiteOfWriteTextOnteste.png sauvegardée dans temps/ (Dilatation)
-DilatedBlurredOfBlackAndWhiteOfWriteTextOnteste.png est pivotée de 4545 degré(s)
-DilatedBlurredOfBlackAndWhiteOfWriteTextOnteste.png sauvegardée dans temps/ (Rotate)
-RotateImageOfDilatedBlurredOfBlackAndWhiteOfWriteTextOnteste.png est redimensionné : 2253 largeur, 1126 longueur
-RotateImageOfDilatedBlurredOfBlackAndWhiteOfWriteTextOnteste.png sauvegardée dans temps/ (Resize)
+grimm.jpeg transformé en noir et blanc
+grimm.jpeg sauvegardée dans temps/ (BAW)
+BlackAndWhiteOfgrimm.jpeg est floutée
+BlackAndWhiteOfgrimm.jpeg sauvegardée dans temps/ (Blurred)
+L'image temps/BlurredOfBlackAndWhiteOfgrimm.jpeg est totalement modifié et sauvegardé dans img
+Le dossier temps/ est supprimé
+teste.png transformé en noir et blanc
+teste.png sauvegardée dans temps/ (BAW)
+BlackAndWhiteOfteste.png est floutée
+BlackAndWhiteOfteste.png sauvegardée dans temps/ (Blurred)
+L'image temps/BlurredOfBlackAndWhiteOfteste.png est totalement modifié et sauvegardé dans img
+Le dossier temps/ est supprimé

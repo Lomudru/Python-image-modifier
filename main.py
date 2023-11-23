@@ -6,6 +6,8 @@ from Story3 import *
 from Story4 import *
 from Story5 import *
 from Story6 import *
+from Story14 import *
+from Story16 import *
 from logger import *
 import sys
 
@@ -108,6 +110,10 @@ def filterFonction(image,output,argsOption,virgule=False,Caract = "",Larg = "",L
                         IndexResize += 1
             image = Resize(image,output,float(Larg),float(Long),0)
             virgule=False
+        if 'Aqua' in Filter:
+            image = Aquarelle(image, output, 0)
+        if 'Face' in Filter:
+            image = FaceDetection(image, output, 0)
 
         os.rename(f'{image}',f'img/Modified_{NameImage}')
         log(f"L'image {image} est totalement modifié et sauvegardé dans {output}")
@@ -182,6 +188,8 @@ if '--i' and '--o' in args:
         print("\"BAW\" transforme en noir et blanc")
         print("\"Blur\" Rend l'image flou")
         print("\"Dila\" Dilate l'image")
+        print("\"Aqua\" Met un filtre aquarelle sur l'image")
+        print("\"Face\" Détecte les visages et met un rectangle autour")
         print("\"Resize:longueur,largueur\" Redimentionne l'image")
         print("\"Rotate:degre\" pivote l'image")
         print("-log : Afficher le contenu du fichier 'movie.log'")

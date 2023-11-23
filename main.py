@@ -155,39 +155,39 @@ for j in range(len(args2)):
 
 
 
-# if '--i' and '--o' in args:
-#     image_index = args.index('--i')
-#     imagepath = args[image_index+1]
-#     ImageFile = args[image_index+1]
-#     output_index = args.index('--o')
-#     output = args[output_index+1]
-#     try:
-#         if os.path.isdir(imagepath):
-#             TabFile = os.listdir(imagepath)
-#             for i in TabFile:
-#                 ipath=f"{imagepath}/{i}"
-#                 filterFonction(ipath,output)
-#         else:
-#             filterFonction(imagepath,output)
-#     except:
-#         print("Erreur dans les données donnée")
+if '--i' and '--o' in args:
+    image_index = args.index('--i')
+    imagepath = args[image_index+1]
+    ImageFile = args[image_index+1]
+    output_index = args.index('--o')
+    output = args[output_index+1]
+    try:
+        if os.path.isdir(imagepath):
+            TabFile = os.listdir(imagepath)
+            for i in TabFile:
+                ipath=f"{imagepath}/{i}"
+                filterFonction(ipath,output,args)
+        else:
+            filterFonction(imagepath,output,args)
+    except:
+        print("Erreur dans les données donnée")
 
-#     if '--help' in args:
-#         print("Aide pour utiliser ce programme :")
-#         print("Options disponibles :")
-#         print("--i Pasth/Of/image.png: Chemin d'accès de l'image en entrée")
-#         print("--o Pasth/Of/Output: Chemin d'accès de l'image de sortie")
-#         print("--filters : Filtres disponibles (ex : \"WT:Texte,PosX,PosY,Size&Blur&Dila\")")
-#         print("\"WT:Texte,PosX,PosY,Size\" ecrit du texte sur l'image")
-#         print("\"BAW\" transforme en noir et blanc")
-#         print("\"Blur\" Rend l'image flou")
-#         print("\"Dila\" Dilate l'image")
-#         print("\"Resize:longueur,largueur\" Redimentionne l'image")
-#         print("\"Rotate:degre\" pivote l'image")
-#         print("-log : Afficher le contenu du fichier 'movie.log'")
-#         print("Exemple d'utilisation :")
-#         print("python script.py --i chemin/vers/mon_image.jpg --o chemin/vers/sortie.jpg --filters \"WT:Hello,100,100,20&Blur\"")
-#         print("Ceci appliquera un filtre de texte ('Hello') avec certaines coordonnées et flou à l'image en entrée.")
+    if '--help' in args:
+        print("Aide pour utiliser ce programme :")
+        print("Options disponibles :")
+        print("--i Pasth/Of/image.png: Chemin d'accès de l'image en entrée")
+        print("--o Pasth/Of/Output: Chemin d'accès de l'image de sortie")
+        print("--filters : Filtres disponibles (ex : \"WT:Texte,PosX,PosY,Size&Blur&Dila\")")
+        print("\"WT:Texte,PosX,PosY,Size\" ecrit du texte sur l'image")
+        print("\"BAW\" transforme en noir et blanc")
+        print("\"Blur\" Rend l'image flou")
+        print("\"Dila\" Dilate l'image")
+        print("\"Resize:longueur,largueur\" Redimentionne l'image")
+        print("\"Rotate:degre\" pivote l'image")
+        print("-log : Afficher le contenu du fichier 'movie.log'")
+        print("Exemple d'utilisation :")
+        print("python script.py --i chemin/vers/mon_image.jpg --o chemin/vers/sortie.jpg --filters \"WT:Hello,100,100,20&Blur\"")
+        print("Ceci appliquera un filtre de texte ('Hello') avec certaines coordonnées et flou à l'image en entrée.")
         
-# else:
-#     print('Donner une image avec \'--i\'et un output avec \'--o\'')
+else:
+    print('Donner une image avec \'--i\'et un output avec \'--o\'')

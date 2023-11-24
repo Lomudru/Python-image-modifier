@@ -6,6 +6,7 @@ from Story3 import *
 from Story4 import *
 from Story5 import *
 from Story6 import *
+from Story15 import *
 from logger import *
 import sys
 
@@ -71,6 +72,8 @@ def filterFonction(image,output,argsOption,virgule=False,Caract = "",Larg = "",L
             virgule=False
         if 'BAW' in Filter:
             image = BlackAndWhite(image,output,0)
+        if 'GIF' in Filter:
+            image = Make_gif(image,output)
         if 'Blur' in Filter:
             image = Blurred(image,output,0)
         if 'Dila' in Filter:
@@ -116,44 +119,44 @@ def filterFonction(image,output,argsOption,virgule=False,Caract = "",Larg = "",L
 
 f = open('imageModifie.log', 'w')
 f.close()
-config = open('config.txt','r')
 
 if '-log' in args:
     f=open("imagemodifie.log", "r")
     print(f.read())
 
-temps = config.readlines()
-args2=[]
-for i in temps:
-    args2+=i.split()
-max=len(args2)
-for i in range(len(args2)):
-    if i<max:
-        if args2[i] == "==":
-            del args2[i]
-            max-=1
-for i in range(len(args2)):
-    if '"' in args2[i]:
-        args2[i]=args2[i][1:-1]
-for i in range(len(args2)):
-    if '--i' in args2[i]:
-        imagepath = args2[i+1]
-    if '--o' in args2[i]:
-        output = args2[i+1]
-for j in range(len(args2)):
-    if '--filters' or '--i' or '--o' in args2[j]:
-        if '--filters' in args2[j]:
-            filterPath = args2[j+1]
-            if os.path.isdir(imagepath):
-                TabFile = os.listdir(imagepath)
-                for i in TabFile:
-                    ipath=f"{imagepath}/{i}"
-                    filterFonction(ipath,output,args2)
-            else:
-                filterFonction(imagepath,output,args2)
-                
-
-
+if '--config' in args:
+    config_index = args.index('--config')
+    configpath = args[config_index+1]
+    config = open(configpath,'r')
+    temps = config.readlines()
+    args2=[]
+    for i in temps:
+        args2+=i.split()
+    max=len(args2)
+    for i in range(len(args2)):
+        if i<max:
+            if args2[i] == "==":
+                del args2[i]
+                max-=1
+    for i in range(len(args2)):
+        if '"' in args2[i]:
+            args2[i]=args2[i][1:-1]
+    for i in range(len(args2)):
+        if '--i' in args2[i]:
+            imagepath = args2[i+1]
+        if '--o' in args2[i]:
+            output = args2[i+1]
+    for j in range(len(args2)):
+        if '--filters' or '--i' or '--o' in args2[j]:
+            if '--filters' in args2[j]:
+                filterPath = args2[j+1]
+                if os.path.isdir(imagepath):
+                    TabFile = os.listdir(imagepath)
+                    for i in TabFile:
+                        ipath=f"{imagepath}/{i}"
+                        filterFonction(ipath,output,args2)
+                else:
+                    filterFonction(imagepath,output,args2)
 
 if '--i' and '--o' in args:
     image_index = args.index('--i')
@@ -172,14 +175,19 @@ if '--i' and '--o' in args:
     except:
         print("Erreur dans les données donnée")
 
-    if '--help' in args:
+else:
+    print('Donner une image avec \'--i\'et un output avec \'--o\'')
+
+if '--help' in args:
         print("Aide pour utiliser ce programme :")
         print("Options disponibles :")
-        print("--i Pasth/Of/image.png: Chemin d'accès de l'image en entrée")
-        print("--o Pasth/Of/Output: Chemin d'accès de l'image de sortie")
+        print("--i Path/Of/image.png: Chemin d'accès de l'image en entrée")
+        print("--o Path/Of/Output: Chemin d'accès de l'image de sortie")
         print("--filters : Filtres disponibles (ex : \"WT:Texte,PosX,PosY,Size&Blur&Dila\")")
+        print("--config Path/Of/config.txt : execute un fichier config")
         print("\"WT:Texte,PosX,PosY,Size\" ecrit du texte sur l'image")
         print("\"BAW\" transforme en noir et blanc")
+        print("\"GIF\" transforme un dossier en GIF")
         print("\"Blur\" Rend l'image flou")
         print("\"Dila\" Dilate l'image")
         print("\"Resize:longueur,largueur\" Redimentionne l'image")
@@ -189,5 +197,3 @@ if '--i' and '--o' in args:
         print("python script.py --i chemin/vers/mon_image.jpg --o chemin/vers/sortie.jpg --filters \"WT:Hello,100,100,20&Blur\"")
         print("Ceci appliquera un filtre de texte ('Hello') avec certaines coordonnées et flou à l'image en entrée.")
         
-else:
-    print('Donner une image avec \'--i\'et un output avec \'--o\'')

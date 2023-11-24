@@ -37,7 +37,7 @@ En cas de besion vous pouver effectuer la commande
 python3 main.py --help
 ```
 
-## Vous pouvez accedez a une fentre permetant de faire les action citée ci dessus
+## Vous pouvez accedez a une fenêtre permetant de faire les action citée ci dessus
 
 ```
 python3 fenetre.py

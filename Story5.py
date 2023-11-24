@@ -3,7 +3,7 @@ import cv2
 from logger import *
 import os
 
-def Resize(image,output, largeur, longueur,save=1):
+def Resize(image,output, largeur, longueur, save=1):
     """
     Convertie l'image mit en paramètre
     ex : >>> Resize("grimm.jpeg","img", 0.5, 0.5)

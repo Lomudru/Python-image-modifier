@@ -23,4 +23,4 @@ def modificationFiles(Files,output):
     shutil.rmtree('temps')
     log(f"Dossier temps/ suprimé.")
 
-modificationFiles('imageAModif','img')
+modificationFiles('imgAModif','img')

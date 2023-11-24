@@ -117,9 +117,12 @@ def filterFonction(image,output,argsOption,virgule=False,Caract = "",Larg = "",L
                         IndexResize += 1
             image = Resize(image,output,float(Larg),float(Long),0)
             virgule=False
-
-        os.rename(f'{image}',f'img/Modified_{NameImage}')
-        log(f"L'image {image} est totalement modifié et sauvegardé dans {output}")
+        
+        if 'GIF' in Filter:
+            None
+        else:
+            os.rename(f'{image}',f'img/Modified_{NameImage}')
+            log(f"L'image {image} est totalement modifié et sauvegardé dans {output}")
         shutil.rmtree('temps')
         log("Le dossier temps/ est supprimé")
 
@@ -171,7 +174,8 @@ if '--i' and '--o' in args:
     output_index = args.index('--o')
     output = args[output_index+1]
     try:
-        if os.path.isdir(imagepath):
+        GIFFiles = "GIF" in args
+        if os.path.isdir(imagepath) and GIFFiles==False:
             TabFile = os.listdir(imagepath)
             for i in TabFile:
                 ipath=f"{imagepath}/{i}"

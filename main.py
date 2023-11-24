@@ -72,6 +72,10 @@ def filterFonction(image,output,argsOption,virgule=False,Caract = "",Larg = "",L
                         IndexWT += 1
             image = WriteText(image,output,str(Text),int(PosX),int(PosY),int(Size),0)
             virgule=False
+        if 'Face' in Filter:
+            image = FaceDetection(image, output, 0)
+        if 'Aqua' in Filter:
+            image = Aquarelle(image, output, 0)
         if 'BAW' in Filter:
             image = BlackAndWhite(image,output,0)
         if 'GIF' in Filter:
@@ -113,10 +117,6 @@ def filterFonction(image,output,argsOption,virgule=False,Caract = "",Larg = "",L
                         IndexResize += 1
             image = Resize(image,output,float(Larg),float(Long),0)
             virgule=False
-        if 'Aqua' in Filter:
-            image = Aquarelle(image, output, 0)
-        if 'Face' in Filter:
-            image = FaceDetection(image, output, 0)
 
         os.rename(f'{image}',f'img/Modified_{NameImage}')
         log(f"L'image {image} est totalement modifié et sauvegardé dans {output}")

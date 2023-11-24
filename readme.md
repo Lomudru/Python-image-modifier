@@ -20,7 +20,7 @@ pip3 install -r requirements.txt
 ## Les différentes commandes
 
 ```
-python3 main.py --filters "votreFiltre:donnéeDemanderParLeFirltre" --i votre image / dossier d'image --o votre dossier qui vas recevoir le résultat
+python3 main.py --filters "votreFiltre:donnéeDemanderParLeFirltre&AutreFiltre (ou pas)" --i votre image / dossier d'image --o votre dossier qui vas recevoir le résultat
 ```
 Les nom des différents filtre possible sont :
 - BAW
